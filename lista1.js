@@ -42,16 +42,16 @@ function exe6(){
 }
 
 function exe7(){
-    let p = Number (document.getElementById("p").value)
+    let peso = Number (document.getElementById("p").value)
     let engordar = (p * 0.15)  
     let emagrecer =(p * 0.2 )
-    alert ("O peso da pessoa é: " + peso)
+    alert (" Se engordar: " + engordar + "\nSe emagrecer:" + emagrecer)
 }
 
 function exe8(){
-    let p = Number (document.getElementById("p").value)
-    let peso = (p * 1000 )
-    alert ("O valor do peso em gramas é: " + peso)
+    let kg = Number (document.getElementById("kg").value)
+    let g = (kg * 1000 )
+    alert ("O valor do peso em gramas é: " + g +"g")
 }
 
 function exe9(){
@@ -59,7 +59,7 @@ function exe9(){
     let b1 = Number (document.getElementById("b1").value)
     let b2 = Number (document.getElementById("b2").value)
     let area = (((b1+ b2 ) * a) /2)
-    alert (" A area do trazpézio é: " + area)
+    alert (" A area do trazpézio é: " + area) 
 }
 
 function exe10(){
@@ -69,4 +69,5 @@ function exe10(){
     let area = (l1 * l2)
     alert ("A area do quadrado é: " + area)
 }
+
 
