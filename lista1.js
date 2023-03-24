@@ -63,11 +63,12 @@ function exe9(){
 }
 
 function exe10(){
-    let a = Number (document.getElementById("a").value)
-    let l1 = Number (document.getElementById("l1").value)
-    let l2 = Number (document.getElementById("l2").value)
-    let area = (l1 * l2)
+    let l = Number (document.getElementById("l").value)
+    let area = (l * l)
     alert ("A area do quadrado é: " + area)
 }
+
+
+
 
 
