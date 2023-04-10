@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calcular salario de desenvolvedor de Software</title>
+  </head>
+  <body>
+    <h1>Calculadora de salário de desenvolvedor de software</h1>
+    <p>Preencha os campos abaixo para calcular o salário:</p>
+    <label for="anos-experiencia">Anos de experiência:</label>
+    <input type="number" id="anos-experiencia">
+    <br>
+    <label for="linguagem-programacao">Linguagem de programação:</label>
+    <select id="linguagem-programacao">
+      <option value="javascript">JavaScript</option>
+      <option value="react">React</option>
+      <option value="node">Node</option>
+    </select>
+    <br>
+    <button onclick="calcularSalario()">Calcular salário</button>
+    <p id="resultado"></p>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+function calcularSalario() {
+  const anosExperiencia = document.getElementById('anos-experiencia').value;
+  const linguagemProgramacao = document.getElementById('linguagem-programacao').value;
+  let salarioBase = 0;
+
+  if (anosExperiencia < 1 || anosExperiencia > 20) {
+    alert('A quantidade de anos de experiência deve estar entre 1 e 20.');
+    return;
+  }
+
+  switch (linguagemProgramacao) {
+    case 'javascript':
+      salarioBase = 1000;
+      break;
+    case 'react':
+      salarioBase = 1500;
+      break;
+    case 'node':
+      salarioBase = 2000;
+      break;
+    default:
+      alert('Selecione uma linguagem de programação válida.');
+      return;
+  }
+
+  let salarioFinal = salarioBase;
+
+  if (anosExperiencia >= 3 && anosExperiencia <= 5) {
+    salarioFinal *= 1.2;
+  } else if (anosExperiencia > 5) {
+    salarioFinal *= 1.5;
+  }
+
+  document.getElementById('resultado').innerHTML = `O salário do desenvolvedor é de R$ ${salarioFinal.toFixed(2)}.`;
+}
