@@ -1,10 +1,54 @@
-function exe1() {
+function somaVetor(){
+    let precos = []
+    let soma = 0
+    for(let i=0;i<10;i++){
+        precos[i] = Number(prompt(`Informe ${i+1}o. preço`))
+    }
+    for(let i=0;i<10;i++){
+        soma = soma + precos[i]
+    }
+    alert(`A média dos preços é ${soma/10}`)
+  }
+  // exercício 1 -> peça ao usuário para informar 10 números
+  // calcule e mostra a soma dos elementos pares
+  function exemplo1(){
+    let vetor = []
+    let soma =0
+    for(let i=0;i<10;i++){
+        vetor[i] = Number(prompt(`${i+1}o. preço`))
+    }
+    for(let i=0;i<10;i++){
+        if (vetor[i] % 2 == 0){
+            soma = soma + vetor[i]
+        }
+    }
+    alert(`A soma é ${soma}`)
+  }
+  // exercício 2 -> peça ao usuário para informar 10 números
+  // calcule e mostra a soma dos elementos nas posições ímpares
+  function exemplo2(){
+    let vetor = []
+    let soma = 0
+    for(let i=0;i<10;i++){
+        vetor[i] = Number(prompt(`${i+1}o. preço`))
+    }
+    for(let i=0;i<10;i++){
+        if (i % 2 == 1){
+            soma = soma + vetor[i]
+        }
+    }
+    alert(`Soma ${soma}`)
+  }
+  
+  function exe1() {
     let vetor = []
   
+    // Entrada de dados
     for (let i = 0; i < 6; i++) {
       vetor[i] = Number(prompt(`Informe o ${i+1}º elemento:`))
     }
   
+    // Cria os vetores pares e ímpares
     let pares = []
     let impares = []
   
@@ -16,6 +60,7 @@ function exe1() {
       }
     }
   
+    // Exibir informações ao usuário
     alert(`Números pares: ${pares}\nQuantidade: ${pares.length}`)
     alert(`Números ímpares: ${impares}\nQuantidade: ${impares.length}`)
   }
@@ -24,10 +69,12 @@ function exe1() {
   function exe2() {
     let vetor = []
   
+    // Entrada de dados
     for (let i = 0; i < 7; i++) {
       vetor[i] = Number(prompt(`Informe o ${i+1}º elemento:`))
     }
   
+    // Cria os vetores de múltiplos
     let mult2 = []
     let mult3 = []
     let mult2e3 = []
@@ -44,14 +91,55 @@ function exe1() {
       }
     }
   
+    // Exibir informações ao usuário
     alert(`Números múltiplos de 2: ${mult2}`)
     alert(`Números múltiplos de 3: ${mult3}`)
     alert(`Números múltiplos de 2 e 3: ${mult2e3}`)
   }
   
+  function exe3() {
+    let codigos = []
+    let estoque = []
   
-  function exe3(){
-
+    // Entrada de dados dos produtos
+    for (let i = 0; i < 5; i++) {
+      codigos[i] = Number(prompt(`Informe o código do produto ${i+1}:`))
+      estoque[i] = Number(prompt(`Informe a quantidade em estoque do produto ${i+1}:`))
+    }
+  
+    let cliente = Number(prompt('Informe o código do cliente (Digite 0 para encerrar):'))
+  
+    while (cliente !== 0) {
+      let codigo = Number(prompt('Informe o código do produto para compra:'))
+      let qtde = Number(prompt('Informe a quantidade para compra:'))
+  
+      let achou = false // Não encontrou o produto
+  
+      for (let i = 0; i < 5; i++) {
+        if (codigo === codigos[i]) {
+          achou = true // Achou o produto
+  
+          if (estoque[i] >= qtde) { // Tem em estoque
+            estoque[i] -= qtde
+            alert('Compra realizada com sucesso')
+          } else {
+            alert('Compra não realizada, falta do produto')
+          }
+        }
+      }
+  
+      if (!achou) { // Não encontrou o produto
+        alert('Produto não encontrado')
+      }
+  
+      cliente = Number(prompt('Informe outro código do cliente (Digite 0 para encerrar):'))
+    }
+  
+    // Exibir informações ao usuário
+    alert(`Estoque atualizado: ${estoque}`)
+  }
+  
+  function exe31(){
     let codigos = []
     let estoque = []
     for(let i = 0;i < 5; i++){
@@ -62,13 +150,13 @@ function exe1() {
     while (cliente != 0 ) {
         let codigo = Number(prompt(`Informe o código do produto para compra`))
         let qtde = Number(prompt(`Informe qtde para compra`))
-        
-        let achou = false 
+        // vamos procurar o código do produto
+        let achou = false // não encontrei o produto
         if (codigos.includes(codigo)){
-                achou = true
-               
+                achou = true // achou
+                // recupera posição do código do produto
                 let posicao = codigos.indexOf(codigo)
-                if (estoque[posicao] >= qtde){ 
+                if (estoque[posicao] >= qtde){ // tem em estoque
                     estoque[posicao] = estoque[posicao] - qtde
                     alert('Compra realizada com sucesso')
                 }
@@ -76,7 +164,8 @@ function exe1() {
                     alert('Compra não realizada, falta do produto')
                 }
         }
-        if (!achou) {
+        // encerrou a procura
+        if (!achou) { // não encontrou
             alert('Produto não encontrado')
         }
         cliente = Number(prompt('Informe outro código do cliente. Digite 0 para encerrar'))
@@ -84,14 +173,13 @@ function exe1() {
     console.log(`Estoque atualizado ${estoque}`)
   }
   
-  
   function exe4(){
-    
+    // entrada de dados
     let vet = []
     for(let i=0;i<10;i++){
         vet[i] = Number(prompt(`Informe o ${i+1}o. elemento`))
     }
-    
+    // cria um vetor que guarda as posições do número 30
     let posicoes = []
     for(let i=0;i<10;i++){
         if (vet[i] == 30) {
@@ -111,7 +199,7 @@ function exe1() {
     for(let i=0;i<5;i++){
         linguagem[i] = Number(prompt(`Informe o ${i}o. aluno que faz Linguagem`))
     }
- 
+    // vamos verificar a intersecção
     for(let i=0;i<10;i++){
         if (linguagem.includes(logica[i])){
             comum.push(logica[i])
@@ -131,6 +219,7 @@ function exe1() {
       percentuais[i] = Number(prompt(`Informe o percentual do ${i+1}º vendedor:`))
       nomes[i] = prompt(`Informe o nome do ${i+1}º vendedor:`)
   
+      // Calcula comissão do vendedor
       comissoes[i] = (vendas[i] / percentuais[i]) * 100
     }
   
@@ -150,11 +239,33 @@ function exe1() {
       }
     }
   
+    // Exibir informações ao usuário
     alert(`Valor total vendido: ${total}`)
     alert(`Maior valor: ${maior} e quem recebe: ${nomes[comissoes.indexOf(maior)]}`)
     alert(`Menor valor: ${menor} e quem recebe: ${nomes[comissoes.indexOf(menor)]}`)
   }
   
+  
+  function codigoAlunoRepetido(){
+    let codigos = []
+    let nomes = []
+    for(let i=0;i<5;i++){
+        let codigo = Number(prompt('Informe um código de aluno'))
+        // codigos tem todos os códigos
+        // código tem o código digitado pelo usuário
+        // includes verifica se código está dentro de códigos
+        while (codigos.includes(codigo)) {
+            codigo = Number(prompt('Código já existe, informe um novo'))
+        }
+        // como o código é novo, agora podemos inserir no vetor
+        codigos[i] = codigo
+        nomes[i] = prompt('Informe um nome de alulno')
+    }
+    console.log(codigos)
+    alert(codigos)
+    console.log(nomes)
+    alert(nomes)
+  }
 
   function exe7() 
   const vetor = [];
@@ -180,12 +291,12 @@ function exe1() {
 
   }
 
-
-  function exe8()
-
-const alunos = [];
+  function exe8(){
+  }
+  const alunos = [];
 const medias = [];
 
+// Preenchendo o vetor de nomes e de médias
 for (let i = 0; i < 7; i++) {
   const nome = prompt(`Digite o nome do aluno ${i + 1}:`);
   const media = parseFloat(prompt(`Digite a média final do aluno ${nome}:`));
@@ -194,6 +305,7 @@ for (let i = 0; i < 7; i++) {
   medias.push(media);
 }
 
+// Encontrando o aluno com a maior média
 let indiceMaiorMedia = 0;
 for (let i = 1; i < medias.length; i++) {
   if (medias[i] > medias[indiceMaiorMedia]) {
@@ -206,6 +318,7 @@ const maiorMedia = medias[indiceMaiorMedia];
 
 console.log(`O aluno com a maior média é: ${alunoMaiorMedia}`);
 
+// Calculando notas para aprovação no exame final
 for (let i = 0; i < alunos.length; i++) {
   const mediaAluno = medias[i];
 
@@ -220,6 +333,7 @@ const nomes = [];
 const codigos = [];
 const precos = [];
 
+// Preenchendo os vetores de nomes, códigos e preços
 for (let i = 0; i < 10; i++) {
   const nome = prompt(`Digite o nome do produto ${i + 1}:`);
   const codigo = parseInt(prompt(`Digite o código do produto ${nome}:`));
